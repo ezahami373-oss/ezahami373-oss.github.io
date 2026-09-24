@@ -1,0 +1,246 @@
+:root {
+  --night: #18212b;
+  --night-deep: #111820;
+  --ink: #f1ece2;
+  --soft: #b9c0c8;
+  --candle: #d3b27a;
+  --line: rgba(211, 178, 122, 0.4);
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 45% at 50% 22%, rgba(211, 178, 122, 0.13), transparent 70%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-deep) 100%);
+  background-color: var(--night);
+  font-family: "MemorialFont", "Vazirmatn", "Noto Naskh Arabic", "Noto Sans Arabic",
+               "Geeza Pro", Tahoma, "Segoe UI", system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.9;
+  animation: settle 1.6s ease-out both;
+}
+
+@keyframes settle {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 44px 22px calc(48px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ---------- Title ---------- */
+.head h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 8vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.full-name {
+  margin: 14px 0 0;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--candle);
+}
+
+.father {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--soft);
+}
+
+.dates {
+  margin: 4px 0 0;
+  font-size: 1.1rem;
+  color: var(--soft);
+}
+
+/* ---------- Portrait in an arch (like a headstone) ---------- */
+.portrait {
+  margin: 38px 0 34px;
+  padding: 0;
+}
+
+.arch {
+  width: min(74vw, 300px);
+  aspect-ratio: 3 / 4;
+  border-radius: 999px 999px 14px 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  outline: 1px solid var(--line);
+  outline-offset: 10px;
+  box-shadow: 0 0 90px rgba(211, 178, 122, 0.16);
+  background: #222e3b;
+}
+
+.arch img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* ---------- Message ---------- */
+.message {
+  margin: 0;
+  max-width: 24em;
+  font-size: clamp(1.3rem, 5.6vw, 1.7rem);
+  font-weight: 500;
+  line-height: 2.1;
+}
+
+.divider {
+  width: 64px;
+  height: 1px;
+  margin: 40px 0 34px;
+  background: var(--candle);
+  opacity: 0.6;
+}
+
+/* ---------- Video ---------- */
+.video-section {
+  width: 100%;
+}
+
+.video-section h2 {
+  margin: 0 0 18px;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--candle);
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: var(--ratio, 16 / 9);
+  max-height: 80vh;
+  margin: 0 auto;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.video-wrap video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  color: var(--ink);
+  font: inherit;
+  background: rgba(17, 24, 32, 0.45);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.play-circle {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 2px solid var(--candle);
+  background: rgba(17, 24, 32, 0.6);
+}
+
+/* play triangle (drawn in CSS so no image file is needed) */
+.play-circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-38%, -50%);
+  border-style: solid;
+  border-width: 16px 0 16px 26px;
+  border-color: transparent transparent transparent var(--candle);
+}
+
+.play-label {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.play-overlay:focus-visible,
+.music-btn:focus-visible {
+  outline: 3px solid var(--candle);
+  outline-offset: 3px;
+}
+
+.note {
+  margin: 16px 0 0;
+  color: var(--soft);
+  font-size: 1.05rem;
+}
+
+/* ---------- Music button ---------- */
+.music-section {
+  margin-top: 30px;
+}
+
+.music-btn {
+  min-height: 56px;
+  min-width: 190px;
+  padding: 12px 30px;
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--candle);
+  border-radius: 999px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  margin-top: 44px;
+  color: var(--soft);
+  font-size: 1rem;
+}
+
+.foot p { margin: 0; }
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 700px) {
+  .page { padding-top: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { animation: none; }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>به یاد پدربزرگ عزیزم</title>
+  <meta name="theme-color" content="#18212b">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+
+    <header class="head">
+      <h1 id="pageTitle">به یاد پدربزرگ عزیزم</h1>
+      <p id="fullName" class="full-name" hidden></p>
+      <p id="dates" class="dates" hidden></p>
+    </header>
+
+    <figure class="portrait">
+      <div class="arch">
+        <img id="photo" alt="عکس یادبود پدربزرگ عزیزم" width="600" height="800">
+      </div>
+    </figure>
+
+    <p id="message" class="message">یادت همیشه در قلب ما زنده خواهد ماند.</p>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <section class="video-section" aria-labelledby="videoHeading">
+      <h2 id="videoHeading">ویدیوی یادبود</h2>
+
+      <div class="video-wrap" id="videoWrap">
+        <video id="video" controls playsinline preload="metadata"></video>
+        <button type="button" class="play-overlay" id="playBtn" aria-label="پخش ویدیو">
+          <span class="play-circle" aria-hidden="true"></span>
+          <span class="play-label" id="playLabel">پخش ویدیو</span>
+        </button>
+      </div>
+
+      <p id="videoNote" class="note" hidden></p>
+    </section>
+
+    <section class="music-section" id="musicSection" hidden>
+      <button type="button" class="music-btn" id="musicBtn">پخش موسیقی</button>
+      <audio id="music" loop preload="none"></audio>
+    </section>
+
+    <footer class="foot">
+      <p id="footerText"></p>
+    </footer>
+
+  </main>
+
+  <script src="settings.js" charset="utf-8"></script>
+  <script src="script.js" charset="utf-8"></script>
+</body>
+</html>
